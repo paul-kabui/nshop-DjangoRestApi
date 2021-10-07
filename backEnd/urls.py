@@ -19,6 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),
+    path('get-csrf-token/', views.get_csrf, name='getcsrf'),
     path('', include('products.urls')),
     path('', include('order.urls')),
     path('', include('cart.urls')),
