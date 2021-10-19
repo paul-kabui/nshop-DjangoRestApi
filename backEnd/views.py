@@ -1,12 +1,18 @@
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.middleware.csrf import get_token
 from django.views.decorators.csrf import ensure_csrf_cookie
+import json
+from django.shortcuts import render
 
-def home_view(request):
-    context={}
-    return HttpResponse('<h1>running !!</h1>')
+
+def csrf_view(request):
+    rensponse = JsonResponse({'info':'sucess - set csrftoken'})
+    rensponse['X-CSRFToken'] = get_token(request)
+    return rensponse
 
 @ensure_csrf_cookie
-def get_csrf(request):
-    return JsonResponse({'Success': 'CSRF Cookie set'})
-
+def Email_view(request):
+    if request.method == "POST":
+        email_body = json.loads(request.body.decode('utf-8'))
+        # print(email_body)
+        return JsonResponse({'info':'Email sent successfully'})

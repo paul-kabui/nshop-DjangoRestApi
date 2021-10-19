@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'products',
     'order',
     'cart',
-    'message'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +60,7 @@ ROOT_URLCONF = 'backEnd.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/"templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,33 +124,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/productImages/'
 
 STATICFILES_DIRS = [BASE_DIR/"static"]
-MEDIA_ROOT = BASE_DIR/'static/media'
+MEDIA_ROOT = BASE_DIR/'static/productImages'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#cookie settings
-CSRF_USE_SESSIONS = False
-CSRF_COOKIE_HTTPONLY = True       
-CSRF_COOKIE_AGE = 8 * 3600           
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_SAMESITE = 'None'
-CSRF_TRUSTED_ORIGINS ='"http://127.0.0.1:3000"'
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
 
-#cors settings
-CORS_ORIGIN_ALLOW_ALL=False
 CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL=False
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:3000',
 ]
-
-
-
+CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
