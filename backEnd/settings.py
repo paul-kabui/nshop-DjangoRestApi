@@ -132,7 +132,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/productImages/'
 
-STATICFILES_DIRS = [BASE_DIR/"static"]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'backEnd/static')
+]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = BASE_DIR/'static/productImages'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
