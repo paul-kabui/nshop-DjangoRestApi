@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nanoshop.herokuapp.com']
 
