@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nanoshop.herokuapp.com']
 
 
 # Application definition
@@ -81,8 +81,13 @@ WSGI_APPLICATION = 'backEnd.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME' : 'dbnano',
+        'USER' : 'myuser',
+        'PASSWORD' : 'mypass',
+        'HOST' : '127.0.0.1',
+        'PORT' : '5432'
     }
 }
 
@@ -142,9 +147,14 @@ SESSION_COOKIE_HTTPONLY = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL=False
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:3000",
+    "https://e-nano.web.app",
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:3000',
+    'https://e-nano.web.app',
 ]
 CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
+
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
