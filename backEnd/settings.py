@@ -24,7 +24,6 @@ SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['nanoshop.herokuapp.com']
 
 
@@ -134,6 +133,7 @@ MEDIA_ROOT = BASE_DIR/'static/productImages'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/"static"]
+STATIC_ROOT = BASE_DIR/'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
