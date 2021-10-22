@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -132,7 +133,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/productImages/'
 
 STATICFILES_DIRS = [BASE_DIR/"static"]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = BASE_DIR/'static/productImages'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -150,7 +153,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://e-nano.web.app",
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    'https://e-nano.web.app',
+    'https://e-nano.web.app/',
 ]
 CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
 
