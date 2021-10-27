@@ -4,10 +4,11 @@ import json
 from django.core import serializers
 from products.models import Product
 from order.models import Order
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
-@ensure_csrf_cookie
+# @ensure_csrf_cookie
+@csrf_exempt
 def cart_view(request):
     if request.method == "POST":
         try:
