@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,9 @@ SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['nanoshop.herokuapp.com']
+# DEBUG = True
+# ALLOWED_HOST = []
+ALLOWED_HOSTS = ['127.0.0.1','nanoshop.herokuapp.com']
 
 
 # Application definition
@@ -132,8 +135,8 @@ MEDIA_URL = '/productImages/'
 MEDIA_ROOT = BASE_DIR/'static/productImages'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/"static"]
-STATIC_ROOT = BASE_DIR/'staticfiles'
+# STATICFILES_DIRS = [BASE_DIR/"static",'/var/www/static/']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
