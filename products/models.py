@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True, serialize=False)
@@ -7,7 +8,7 @@ class Product(models.Model):
     quantity = models.IntegerField()
     productName = models.CharField(max_length=25)
     price = models.DecimalField(max_digits=9,decimal_places=2)
-    display_image = models.ImageField(max_length=255)
+    display_image = CloudinaryField('image')
     
     
     def __str__(self):

@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'products',
     'order',
     'cart',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +166,9 @@ CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+cloudinary.config( 
+  cloud_name = "dq6ggo13y", 
+  api_key = "876914988986827", 
+  api_secret = "X0TBfdafASKmcK8PfXd6YV1qNhA" 
+)

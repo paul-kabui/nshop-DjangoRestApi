@@ -4,7 +4,6 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 import json
 from django.shortcuts import render
 
-
 def csrf_view(request):
     rensponse = JsonResponse({'info':'sucess - set csrftoken'})
     rensponse['X-CSRFToken'] = get_token(request)
