@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 # ALLOWED_HOST = []
 ALLOWED_HOSTS = ['127.0.0.1','nanoshop.herokuapp.com']
 
@@ -155,10 +155,12 @@ SESSION_COOKIE_HTTPONLY = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL=False
 CORS_ALLOWED_ORIGINS = [
-    "https://e-nano.web.app",
+    "https://p-nano.web.app",
+    'http://localhost:3000',
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    'https://e-nano.web.app/',
+    'https://p-nano.web.app/',
+    'http://localhost:3000',
 ]
 CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
 
