@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%gbv9eb)4uh$xy)lkvcnp5s4x21o&6ks51j*2hot_m84+&10o&'
+SECRET_KEY = 'asdfghjkl;we567890sdfghj THIS IS NOT THE KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
-DEBUG = True
+DEBUG = False
 # ALLOWED_HOST = []
 ALLOWED_HOSTS = ['127.0.0.1','nanoshop.herokuapp.com']
 
@@ -90,11 +90,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME' : 'dbnano',
-        'USER' : 'myuser',
-        'PASSWORD' : 'mypass',
-        'HOST' : '127.0.0.1',
-        'PORT' : '5432'
+        #i cant disclose these details 
+        'NAME' : '*******',
+        'USER' : '*******',
+        'PASSWORD' : '*******',
+        'HOST' : '********',
+        'PORT' : '********'
     }
 }
 
@@ -169,8 +170,9 @@ import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
+#change this details during deploying
 cloudinary.config( 
-  cloud_name = "dq6ggo13y", 
-  api_key = "876914988986827", 
-  api_secret = "X0TBfdafASKmcK8PfXd6YV1qNhA" 
+  cloud_name = "***********", 
+  api_key = "***********", 
+  api_secret = "**************" 
 )
